@@ -1,0 +1,146 @@
+﻿@model Application.Models.Education
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+        <form asp-action="Create" id="edudet">
+    <p>EDUCATION INFORMATION : </p>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <table>
+        <tr>
+            <th>Degree</th>
+            <th>Course</th>
+            <th>College Name</th>
+            <th>%</th>
+        </tr>
+        <tr>
+            <th>X</th>
+            <td> <input asp-for="XcourseName" class="form-control" /></td>
+            <td><input asp-for="XcollegeName" class="form-control" /></td>
+            <td><input asp-for="Xpercent" class="form-control" /></td>
+        </tr>
+        <tr>
+            <th>XII</th>
+            <td> <input asp-for="XIIcourseName" class="form-control" /></td>
+            <td><input asp-for="XIIcollegeName" class="form-control" /></td>
+            <td><input asp-for="XIIpercent" class="form-control" /></td>
+        </tr>
+        <tr>
+            <th>UG</th>
+            <td><input asp-for="UGcourseName" class="form-control" /></td>
+            <td><input asp-for="UGcollegeName" class="form-control" /></td>
+            <td><input asp-for="UGpercent" class="form-control" /></td>
+        </tr>
+        <tr>
+            <th>PG</th>
+            <td><input asp-for="PGcourseName" class="form-control" /></td>
+            <td><input asp-for="PGcollegeName" class="form-control" /></td>
+            <td><input asp-for="PGpercent" class="form-control" /></td>
+        </tr>
+        <tr>
+            <th>OTHER</th>
+            <td><input asp-for="OthercourseName" class="form-control" /></td>
+            <td><input asp-for="OthercollegeName" class="form-control" /></td>
+            <td><input asp-for="Otherpercent" class="form-control" /></td>
+        </tr>
+            </table>
+
+    <p>MAJOR ACHIEVMENTS/PUBLICATIONS TO YOUR CREDIT : </p>
+    <table id="majtable">
+        <tr>
+            <th>Sr.No</th>
+            <th>Description</th>
+            <th>Year</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td> <input asp-for="Description1" class="form-control" /></td>
+            <td><input asp-for="year1" class="form-control" /></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td> <input asp-for="Description2" class="form-control" /></td>
+            <td><input asp-for="year2" class="form-control" /></td>
+        </tr>
+    </table>
+    <br>
+    <p>ADDITIONAL QUALIFICATIONS/DIPLOMAS/CERTIFICATES/TRAINING Please mention any Self learned course/Software/Package</p>
+
+    <div class="wrapper">
+        <div class="input-box">
+                <label asp-for="program" class="control-label"></label>
+                <input asp-for="program" class="form-control" />
+                <span asp-validation-for="program" class="text-danger"></span>
+            </div>
+        <div class="input-box">
+                <label asp-for="Institute" class="control-label"></label>
+                <input asp-for="Institute" class="form-control" />
+                <span asp-validation-for="Institute" class="text-danger"></span>
+            </div>
+        <div class="input-box">
+                <label asp-for="duration" class="control-label"></label>
+                <input asp-for="duration" class="form-control" />
+                <span asp-validation-for="duration" class="text-danger"></span>
+            </div>
+        <div class ="input-box">
+                <label asp-for="percentage" class="control-label"></label>
+                <input asp-for="percentage" class="form-control" />
+                <span asp-validation-for="percentage" class="text-danger"></span>
+            </div>
+    </div>
+    <hr>
+    <p>SEMINARS/TRAINING PROGRAMS ATTENDED : </p>
+    <table id="semtable">
+        <tr>
+            <th>Sr.No</th>
+            <th>Seminar/Training Program</th>
+            <th>Conducted by</th>
+            <th>Duration</th>
+        </tr>
+        <tr><td>1</td>
+            <td><input asp-for="seminarname" class="form-control" /></td>
+            <td> <input asp-for="seminarconductby" class="form-control" /></td>
+            <td><input asp-for="seminarduration" class="form-control" /></td>
+        </tr>
+    </table>
+    <br>
+    <p>PROJECT INFORMATION(In ascending order give details of the recent projects) : </p>
+    <table id="protable">
+        <tr>
+            <th>Sr.No</th>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Client</th>
+            <th>Platform and Skill used</th>
+            <th>Team Size</th>
+            <th>Role</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><input asp-for="title" class="form-control" /></td>
+            <td> <input asp-for="company" class="form-control" /></td>
+            <td><input asp-for="client" class="form-control" /></td>
+            <td> <input asp-for="skill" class="form-control" /></td>
+            <td> <input asp-for="teamsize" class="form-control" /></td>
+            <td><input asp-for="role" class="form-control" /></td>
+        </tr>
+    </table>
+    <br>
+
+    <div class="form-group" style="display: none;">
+                <label asp-for="personid" class="control-label"></label>
+                <select asp-for="personid" class ="form-control" asp-items="ViewBag.personid"></select>
+            </div>
+            <div class="button">
+                <input type="submit" value="Next" />
+            </div>
+        </form>
+   
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,118 @@
+﻿@model Application.Models.Company
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="content">
+    <form asp-action="Create" id="comdet">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <section class="repeating-container relative">
+            <p>
+                Details of previous Employers <br>*Please attach a copy of Your relieving letter/service
+                certificate for this
+            </p>
+            <section class="repeating">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Company Name(1)</span>
+                        <input type="text" asp-for="CompanyName" />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Last Designation held</span>
+                        <input type="text" asp-for="Lastdesignation" />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Address (main office)</span>
+                        <input asp-for="CompanyAddress" />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Telephone</span>
+                        <input type="number"  asp-for="TelephoneofRm" />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Employment period</span>
+                        <input type="text" asp-for="Employmentperiod" />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Employe Code/Personel No:</span>
+                        <input type="number" name="" id="" asp-for="Employecode" />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Name of Reporting Manager</span>
+                        <input type="text"  asp-for="NameofRm" />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Name of HR:</span>
+                        <input type="text"  asp-for="NameofHr" />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Contact No. of HR:</span>
+                        <input type="number"  asp-for="TelephoneofHr" />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email ID of HR:</span>
+                        <input type="email"  asp-for="EmailofHr" />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Department of Reporting Manager:</span>
+                        <input type="text"  asp-for="DepartmentofRm" />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Contact No of Reporting Manager:</span>
+                        <input type="number"  />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email ID of Reporting Manager:</span>
+                        <input type="email"  asp-for="EmailofRm" />
+                    </div>
+
+                    <div class="employment-details input-box">
+                        
+                        <span class="details employment_d">Whether employment is of : </span><br />
+                        <select asp-for="EmploymentIsOf">
+                            <option value="permanent">Permanent</option>
+                            <option value="Temporary">Temporary</option>
+                        </select>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Name of Alternative Reporting Manager:</span>
+                        <input type="text"  asp-for="AlternativeNameofRm" />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Contact No. of Alternative Manager:</span>
+                        <input type="number"  asp-for="AlternativeTelephoneofRm" />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email ID of Alternative Reporting Manager :</span>
+                        <input type="email"  asp-for="AlternativeEmailofRm" />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Contact No. of Department of Alternative Reporting manager:</span>
+                        <input type="text"  asp-for="AlternativeDepartmentofRm" />
+                    </div>
+                    <p>Reason(s) for Leaving : </p>
+                    <textarea rows="5" cols="95" asp-for="Reason"></textarea>
+                    <p>Agency Details(if temporary or contractual) : </p>
+                    <textarea rows="3" cols="95" asp-for="Agency"></textarea>
+                    <p>Remunerations(CTC pa) : </p>
+                    <textarea rows="3" cols="95" asp-for="Remunerations"></textarea>
+                </div>
+
+
+                <div class="form-group" style="display: none;">
+                <label asp-for="personid" class="control-label"></label>
+                <select asp-for="personid" class ="form-control" asp-items="ViewBag.personid"></select>
+            </div>
+            <div class="button">
+                <input type="submit" value="Next" />
+            </div>
+            </section>
+            </section>
+        </form>
+    </div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,129 @@
+﻿@model Application.Models.Addinfo
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+    <div class="content">
+        <form asp-action="Create" id="adddet">
+            <p>Present Address : </p>
+            <div class="user-details">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="input-box">
+                <label asp-for="AddressLine1" class="control-label"></label>
+                <input asp-for="AddressLine1"  id="pAddressLine1" required />
+                <span asp-validation-for="AddressLine1" class="text-danger"></span>
+            </div>
+                <div class="input-box">
+                <label asp-for="AddressLine2" class="control-label"></label>
+                <input asp-for="AddressLine2"  id="pAddressLine2" />
+                <span asp-validation-for="AddressLine2" class="text-danger"></span>
+            </div>
+                <div class="input-box">
+                <label asp-for="ZipCode" class="control-label"></label>
+                <input asp-for="ZipCode"  id="pZipcode" />
+                <span asp-validation-for="ZipCode" class="text-danger"></span>
+            </div>
+                <div class="input-box">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City"  id="pCity" required />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+                <div class="input-box">
+                <label asp-for="State" class="control-label"></label>
+                <input asp-for="State"  id="pState" required />
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+                <div class="input-box">
+                <label asp-for="Country" class="control-label"></label>
+                <input asp-for="Country"  id="pCountry" required />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            </div>
+            <div>
+                <input type="checkbox" id="checkBox" onclick="autoFilAddress()"> Same as permanent address
+            </div>
+        <p>Permanent Address : </p>
+        <div class="user-details">
+             <div class="input-box">
+                <label asp-for="AddressLine1" class="control-label"></label>
+                <input asp-for="PermanentAddressLine1" class="form-control" id="curAddressLine1" required />
+                <span asp-validation-for="PermanentAddressLine1" class="text-danger"></span>
+            </div>
+                <div class="input-box">
+                <label asp-for="PermanentAddressLine2" class="control-label"></label>
+                <input asp-for="PermanentAddressLine2" class="form-control" id="curAddressLine2" />
+                <span asp-validation-for="PermanentAddressLine2" class="text-danger"></span>
+            </div>
+                <div class="input-box">
+                <label asp-for="PermanentZipCode" class="control-label"></label>
+                <input asp-for="PermanentZipCode" class="form-control" id="curZipcode" required />
+                <span asp-validation-for="PermanentZipCode" class="text-danger"></span>
+            </div>
+                <div class="input-box">
+                <label asp-for="PermanentCity" class="control-label"></label>
+                <input asp-for="PermanentCity" class="form-control" id="curCity" required />
+                <span asp-validation-for="PermanentCity" class="text-danger"></span>
+            </div>
+                <div class="input-box">
+                <label asp-for="PermanentState" class="control-label"></label>
+                <input asp-for="PermanentState" class="form-control" id="curState" required />
+                <span asp-validation-for="PermanentState" class="text-danger"></span>
+            </div>
+                <div class="input-box">
+                <label asp-for="PermanentCountry" class="control-label"></label>
+                <input asp-for="PermanentCountry" class="form-control" id="curCountry" required />
+                <span asp-validation-for="PermanentCountry" class="text-danger"></span>
+            </div>
+
+            <p>Family Information (Parents,Brothers,Sisters,Spouse and Children) : </p>
+
+            <table id="mytable">
+                <tr>
+                    <th>Name</th>
+                    <th>Relationship</th>
+                    <th>Age</th>
+                </tr>
+                <tr>
+                    <td>
+                        
+                            <input asp-for="Name" />
+                       
+                    </td>
+                    <td>
+                        
+                            <select asp-for="RelationshipType" >
+                                <option value="Parent">Parent</option>
+                                <option value="Sibling">Sibling</option>
+                                <option value="Spouse">Spouse</option>
+                                <option value="Child">Child</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        
+                    </td>
+                    <td>
+                            <input asp-for="Age"  />
+                        
+                    </td>
+                </tr>
+            </table>
+            <br>
+
+            <hr>
+
+            <div class="input-box" style="display: none;">
+                <label asp-for="personid" class="control-label"></label>
+                <select asp-for="personid" class ="form-control" asp-items="ViewBag.personid"></select>
+            </div>
+        </div>
+            <div class="button">
+                <input type="submit" value="Next">
+            </div>
+            
+        
+        </form>
+    </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

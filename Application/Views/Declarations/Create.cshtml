@@ -1,0 +1,57 @@
+﻿@model Application.Models.Declaration
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Declaration and Authorization</h1>
+<p>
+    I understand that any employment by MPY TECHNOLOGIES India or its affiliated companies is conditioned upon
+    positive responses from my references, bonding eligibility, continued adherence to MPY TECHNOLOGIES policies
+    and procedures, applicable rules and regulations and job performance satisfactory at all times to MPY
+    TECHNOLOGIES.
+</p>
+<p>
+    I consent to take any pre or post-employment examinations as may be required by MPY TECHNOLOGIES or its
+    permitted agents, its representative, and release MPY TECHNOLOGIES and its agents from any liability that
+    may arise from such examination.
+</p>
+<p>
+    I authorize an inquiry to be made on the information contained on this application. Former employers and
+    officials of education institutes, named on this application are authorized to give information about me and
+    I release them from all liability for issuing such information.
+</p>
+<p>
+    I hereby attest and warrant that all my answers on this application as well as on all forms completed in
+    conjunction with my employment are true and accurate. I understand that my misrepresentation of facts,
+    failure to disclose information required on this application or material change in my information provided
+    which is not reported to Human Resources shall be cause for dismissal regardless of when discovered by MPY
+    TECHNOLOGIES.
+</p>
+<p>
+    I understand, and authorize, that MPY TECHNOLOGIES may share my consumer report and/or investigative report
+    with third parties including auditors, government agencies, and clients as necessary.
+</p>
+<p>
+    I hereby declare that the information given by me is true and the certificates or documents submitted are
+    genuine to the best of my knowledge.
+</p>
+<br>
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <label for="sign">Signed : </label><input type="text" asp-for="Signed" style="border: none;" required><br>
+    <label for="sign">Name in Block Capitals : </label><input type="text" asp-for="Name" style="border: none;" required><br>
+    <label for="sign">Date : </label><input type="date" asp-for="Date" style="border: none;" required>
+    <div style="display: none;">
+        <label asp-for="personid" class="control-label"></label>
+        <select asp-for="personid" class="form-control" asp-items="ViewBag.personid"></select>
+    </div>
+    <div class="button">
+        <input type="submit" value="SUBMIT">
+    </div>
+</form>
+      
+             
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

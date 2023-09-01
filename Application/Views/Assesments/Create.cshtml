@@ -1,0 +1,55 @@
+﻿@model Application.Models.Assesment
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+    <p>
+        PERSONAL ASSESMENT:<br>
+        Please put down in five succinct points as what you consider your strengths and weaknesses.
+    </p>
+<form asp-action="Create" id="peradet">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <table>
+        <tr><th>Sr.No</th><th>STRENGTHS</th></tr>
+        <tr><td>1</td><td><input type="text" asp-for="S1"></td></tr>
+        <tr><td>2</td><td><input type="text" asp-for="S2"></td></tr>
+        <tr><td>3</td><td><input type="text" asp-for="S3"></td></tr>
+        <tr><td>4</td><td><input type="text" asp-for="S4"></td></tr>
+        <tr><td>5</td><td><input type="text" asp-for="S5"></td></tr>
+    </table><br /><br />
+    <table>
+        <tr><th>Sr.No</th><th>WEAKNESE</th></tr>
+        <tr><td>1</td><td><input type="text" asp-for="W1"></td></tr>
+        <tr><td>2</td><td><input type="text" asp-for="W2"></td></tr>
+        <tr><td>3</td><td><input type="text" asp-for="W3"></td></tr>
+        <tr><td>4</td><td><input type="text" asp-for="W4"></td></tr>
+        <tr><td>5</td><td><input type="text" asp-for="W5"></td></tr>
+    </table>
+    <hr>
+    <P>Which Sports/Hobby/Activity provides you immense satisfaction?state briefly as to why?</P>
+    <textarea rows="5" cols="80" asp-for="Hobby"></textarea>
+    <p>What is your short term goals?</p>
+    <textarea rows="8" cols="80" asp-for="Shortgoal"></textarea>
+    <p>What is your long term goals?</p>
+    <textarea rows="8" cols="80" asp-for="Longgoal"></textarea>
+    <p>
+        Have you ever attended an interview at any of the MPY TECHNOLOGIES Offices across the globe in the
+        last 6 months?Yes/No(If yes,mention the details)
+    </p>
+    <textarea rows="5" cols="80" asp-for="MpyAttendency"></textarea>
+
+
+    <div class="form-group" style="display: none;">
+                <label asp-for="personid" class="control-label"></label>
+                <select asp-for="personid" class ="form-control" asp-items="ViewBag.personid"></select>
+            </div>
+            <div class="button">
+                <input type="submit" value="Next" />
+            </div>
+        </form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

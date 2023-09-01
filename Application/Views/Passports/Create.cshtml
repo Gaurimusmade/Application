@@ -1,0 +1,91 @@
+﻿@model Application.Models.Passport
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="content">
+    <form asp-action="Create" id="pasdet">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <p>Passport Details(If Available) :</p>
+        <div class="user-details">
+            <div class="input-box">
+                <label asp-for="Number" class="control-label" class="details"></label>
+                <input asp-for="Number" class="form-control" />
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+            <div class="input-box">
+                <label asp-for="Issuedate" class="control-label" class="details"></label>
+                <input asp-for="Issuedate" class="form-control" />
+                <span asp-validation-for="Issuedate" class="text-danger"></span>
+            </div>
+            <div class="input-box">
+                <label asp-for="Expirydate" class="control-label" class="details"></label>
+                <input asp-for="Expirydate" class="form-control" />
+                <span asp-validation-for="Expirydate" class="text-danger"></span>
+            </div>
+            <div class="input-box">
+                <label asp-for="PlaceofIssue" class="control-label" class="details"></label>
+                <input asp-for="PlaceofIssue" class="form-control" />
+                <span asp-validation-for="PlaceofIssue" class="text-danger"></span>
+            </div>
+            </div>
+        <br />
+        <div class="input-box">
+            <span class="details employment_d">Do you have a valid VISA?</span>
+            <select asp-for="Visa" class="form-control">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <span asp-validation-for="Visa" class="text-danger"></span>
+        </div><br />
+        <div class="input-box">
+            <span class="details employment_d">
+                Are you open to travel to the USA/Sri Lanka on work for a period
+                of 6 months/ less during a year?
+            </span>
+            <select asp-for="Opentotravel" class="form-control">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <span asp-validation-for="Opentotravel" class="text-danger"></span>
+        </div>
+        <br />
+        <p>
+            Please name two known contacts who could be friends / co-workers whom you would like to recommend for
+            Employment at MPY TECHNOLOGIES
+        </p><br />
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Current Company</th>
+                <th>E-mail address</th>
+                <th>Telephone</th>
+            </tr>
+            <tr>
+                <td><input type="text" asp-for="RfName"></td>
+                <td><input type="text" asp-for="Rfcurrentcompany"></td>
+                <td><input type="email" asp-for="Rfemail"></td>
+                <td><input type="number" asp-for="Rftelephone"></td>
+            </tr>
+            <tr>
+                <td><input type="text" asp-for="RsName"></td>
+                <td><input type="text" asp-for="Rscurrentcompany"></td>
+                <td><input type="email" asp-for="Rsemail"></td>
+                <td><input type="number" asp-for="Rstelephone"></td>
+            </tr>
+        </table>
+
+
+        <div class="form-group" style="display: none;">
+                <label asp-for="personid" class="control-label"></label>
+                <select asp-for="personid" class ="form-control" asp-items="ViewBag.personid"></select>
+            </div>
+           
+            <div class="button">
+                <input type="submit" value="Next" />
+            </div>
+        </form>
+    </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
